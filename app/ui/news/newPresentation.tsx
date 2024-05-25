@@ -1,6 +1,14 @@
 import Image from "next/image";
 import imageInfo from "../../../public/info.jpg";
 
+
+/**
+ * 
+ * @param {object} newInfo - Basic informations about a recent news
+ * @param {string} title - Title of the news
+ * @param {string} resume - Resume of the news
+ * @returns {tsx} A card type element containing basic information about the recent news
+ */
 export default function NewPresentation(newInfo: {
   title: string;
   resume: string;

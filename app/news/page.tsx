@@ -1,5 +1,9 @@
 import NewsPresentation from "../ui/news/newsPresentation";
 
+/**
+ * 
+ * @returns The page containing the news
+ */
 export default function Page() {
   return (
     <main>
