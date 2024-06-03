@@ -1,18 +1,21 @@
-const { news } = require("../../lib/placeholder-news");
 import NewPresentation from "./newPresentation";
+import prisma from "@/app/lib/db";
 
 /**
  * 
- * @returns Element displaying each recent news as a list
+ * @returns Element displaying each recent news as a list to display in the News page
  */
-export default function NewsPresentation() {
-  console.log(news);
-  const newsList = news.map(
-    (info: { id: number; title: string; resume: string }) => (
+export default async function NewsPresentation() {
+const latestNews = await await prisma.latestNews.findMany()
+
+  const newsList = latestNews.map(
+    (info: { id: number; title: string; content: string; createdAt: Date; publisherId: number }) => (
       <NewPresentation
         key={info.id}
         title={info.title}
-        resume={info.resume}
+        resume={info.content}
+        createdAt={info.createdAt}
+        publisherId={info.publisherId}
       ></NewPresentation>
     )
   );
